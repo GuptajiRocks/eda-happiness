@@ -6,7 +6,7 @@ import numpy as np
 
 # Load the dataset
 st.title("World Happiness Report - Exploratory Data Analysis")
-uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+uploaded_file = st.file_uploader("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\edac.csv", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.write("### Data Preview")
@@ -79,3 +79,8 @@ if uploaded_file is not None:
             st.write("### Pairplot")
             pairplot_fig = sns.pairplot(df[selected_pairplot_columns])
             st.pyplot(pairplot_fig)
+    
+    st.sidebar.header("Bar Plot")
+    if st.sidebar.checkbox("Show Bar Plot"):
+        selected_pairplot_columns = st.sidebar.multiselect("Select columns for pairplot", numeric_columns, default=numeric_columns[:4])
+        
