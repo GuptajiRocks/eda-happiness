@@ -6,46 +6,48 @@
     <title>World Happiness Report EDA</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Framer Motion and React -->
-    <script defer src="https://unpkg.com/react/umd/react.development.js"></script>
-    <script defer src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
-    <script defer src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-
-    <div id="app" class="text-center p-6 bg-white rounded-lg shadow-lg">
-        <h1 class="text-4xl font-bold text-blue-600 mb-4">Exploratory Data Analysis</h1>
-        <p class="text-xl text-gray-700 mb-6">World Happiness Report</p>
-        <img src="https://www.mygreatlearning.com/blog/wp-content/uploads/2019/09/What-is-data-science-2.jpg" alt="Data Science" class="w-full rounded mb-6">
-        <button id="redirectButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Discover More
-        </button>
-    </div>
-
-    <script type="text/javascript">
-        const { motion } = window['framer-motion'];
-
-        function App() {
-            return React.createElement(motion.div, {
-                initial: { opacity: 0, y: 20 },
-                animate: { opacity: 1, y: 0 },
-                transition: { duration: 0.5 }
-            }, [
-                React.createElement('div', { className: 'text-center p-6 bg-white rounded-lg shadow-lg' }, [
-                    React.createElement('h1', { className: 'text-4xl font-bold text-blue-600 mb-4' }, 'Exploratory Data Analysis'),
-                    React.createElement('p', { className: 'text-xl text-gray-700 mb-6' }, 'World Happiness Report'),
-                    React.createElement('img', { src: 'https://www.mygreatlearning.com/blog/wp-content/uploads/2019/09/What-is-data-science-2.jpg', alt: 'Data Science', className: 'w-full rounded mb-6' }),
-                    React.createElement('button', {
-                        id: 'redirectButton',
-                        className: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
-                        onClick: () => window.location.href = 'YOUR_REDIRECT_URL_HERE'
-                    }, 'Discover More')
-                ])
-            ]);
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
         }
+    </style>
+</head>
+<body class="flex items-center justify-center">
 
-        ReactDOM.render(React.createElement(App), document.getElementById('app'));
-    </script>
+    <div class="grid gap-6 p-6 md:grid-cols-3">
+        <!-- Project Members Card -->
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Project Members</h2>
+            <ul class="text-gray-700">
+                <li><b>Arihant Gupta</b></li>
+                <li><b>Manasvi Khanna</b></li>
+                <li><b>Grisha Nagpal</b></li>
+                <!-- Add more members as needed -->
+            </ul>
+        </div>
+
+        <!-- Redirect Button Card -->
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center flex flex-col justify-center">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Explore More</h2>
+            <button onclick="window.location.href='YOUR_REDIRECT_URL_HERE'"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
+                Discover More
+            </button>
+        </div>
+
+        <!-- Project Details Card -->
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">Project Details</h2>
+            <p class="text-gray-700">
+                This project involves an exploratory data analysis (EDA) of the World Happiness Report. We aim to uncover key patterns and insights from the data that can influence global happiness metrics.
+            </p>
+        </div>
+    </div>
 
 </body>
 </html>
