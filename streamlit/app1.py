@@ -26,5 +26,19 @@ def middleast_compare():
     plt.bar(tempdf["Country"], height=tempdf["Freedom"])
     plt.show()
 
+def north_america_compare():
+    tempdf = df.loc[df["Region"] == "North America"]
+    plt.figure(figsize=(10, 6))
+    plt.subplot(1,2,1)
+    plt.bar(tempdf["Country"], height=tempdf["Freedom"])
+    plt.xlabel("Countries")
+    plt.ylabel("Freedom Rating")
+    plt.subplot(1,2,2)
+    plt.bar(tempdf["Country"], height=tempdf["Economy (GDP per Capita)"])
+    plt.xlabel("Countries")
+    plt.ylabel("Economy (GDP Per Capita)")
+    plt.show()
 
-middleast_compare()
+
+north_america_compare()
+    
