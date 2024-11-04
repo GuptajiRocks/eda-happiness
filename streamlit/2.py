@@ -75,7 +75,9 @@ if st.sidebar.checkbox("Show Pairplot"):
 
 st.sidebar.header("Bar Plot")
 if st.sidebar.checkbox("Show Bar Plot"):
-    selected_barplot_columns = st.sidebar.selectbox("Select columns for pairplot", numeric_columns, default=numeric_columns[:4])
+    selected_barplot_columns = st.sidebar.selectbox("Select columns for BarPlot", numeric_columns)
     if selected_barplot_columns:
+        fig, ax = plt.subplots()
         st.write("Bar Plot")
-        sns.barplot(df[selected_barplot_columns])
+        sns.barplot(x=df[selected_barplot_columns])
+        st.pyplot(fig)
