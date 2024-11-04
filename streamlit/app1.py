@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 # import streamlit as st
+from middleast import *
 
 df = pd.read_csv("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\dataset\\edac.csv")
 
@@ -52,6 +53,4 @@ def latin_america_compare():
     plt.ylabel("Economy (GDP Per Capita)")
     plt.show()
 
-
-latin_america_compare()
-    
+country_dystopia_southasia(df)
