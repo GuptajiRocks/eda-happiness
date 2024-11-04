@@ -20,13 +20,6 @@ def western_europe_comparison():
     plt.show()
     # print(tempdf)
 
-def middleast_compare():
-    tempdf = df.loc[df["Region"] == "Middle East and Northern Africa"]
-    # print(tempdf)
-    plt.figure(figsize=(10, 6))
-    plt.bar(tempdf["Country"], height=tempdf["Freedom"])
-    plt.show()
-
 def north_america_compare():
     tempdf = df.loc[df["Region"] == "North America"]
     plt.figure(figsize=(10, 6))
