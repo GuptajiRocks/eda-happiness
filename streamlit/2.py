@@ -81,3 +81,8 @@ if st.sidebar.checkbox("Show Bar Plot"):
         st.write("Bar Plot")
         sns.barplot(x=df[selected_barplot_columns])
         st.pyplot(fig)
+
+st.sidebar.header("Line Plot")
+if st.sidebar.checkbox("Show Line Plot"):
+    selected_line_plot = st.sidebar.selectbox("Select columns to plot")
+    
