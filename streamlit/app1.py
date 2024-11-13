@@ -7,12 +7,12 @@ import seaborn as sns
 from middleast import *
 from missfunc import *
 
-class filer_df:
-    def __init__(self):
-        df = pd.read_csv("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\dataset\\edac.csv")
+# class filer_df:
+#     def __init__(self):
+#         df = pd.read_csv("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\dataset\\edac.csv")
     
-    def df_return():
-        return df
+#     def df_return():
+#         return df
 
 
 
@@ -23,8 +23,9 @@ def distinct_region():
     tempset = set(templ)
     return list(tempset)
 
-unique_regions = distinct_region()
-print(unique_regions)
+def trial():
+    unique_regions = distinct_region()
+    print(unique_regions)
 
 def western_europe_comparison():
     tempdf = df.loc[df["Region"] == "Western Europe"]
@@ -72,5 +73,14 @@ def country_error():
     plt.ylabel("Standard Error")
     plt.show()
 
-df_info_string = df.info(memory_usage='deep')
-print(df_info_string)
+def compare_economy_trust():
+    tempdf = df[["Country", "Economy (GDP per Capita)", "Trust"]]
+    tempdf.plot(x="Country", kind="bar", figsize=(10,6))
+    plt.title('GDP and Trust Score by Country')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.show()
+
+compare_economy_trust()
