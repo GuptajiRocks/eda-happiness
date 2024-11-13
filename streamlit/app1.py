@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 import seaborn as sns
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 # Importing differnt files from directories and their functions
 from middleast import *
@@ -74,8 +75,10 @@ def country_error():
     plt.show()
 
 def compare_economy_trust():
-    tempdf = df[["Country", "Economy (GDP per Capita)", "Trust"]]
-    tempdf.plot(x="Country", kind="bar", figsize=(10,6))
+    tempdf = df[["Region", "Economy (GDP per Capita)", "Trust"]]
+    cols_to_normalize = ['Economy (GDP per Capita)', 'Trust']
+    tempdf = tempdf.groupby("Region").mean().reset_index()
+    tempdf.plot(x="Region", kind="bar", figsize=(10,6))
     plt.title('GDP and Trust Score by Country')
     plt.xlabel('Country')
     plt.ylabel('Value')
