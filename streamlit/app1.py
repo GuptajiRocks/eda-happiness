@@ -65,7 +65,12 @@ def happiness_score_plot():
     plt.bar(tempdf["Region"], tempdf["Happiness Score"])
     plt.show()
 
+def country_error():
+    plt.bar(df["Country"], df["Standard Error"])
+    plt.title("Displying the standard error in the report")
+    plt.xlabel("Countries")
+    plt.ylabel("Standard Error")
+    plt.show()
 
-
-
-happiness_score_plot()
+df_info_string = df.info(memory_usage='deep')
+print(df_info_string)

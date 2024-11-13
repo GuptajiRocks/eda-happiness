@@ -17,6 +17,12 @@ if st.sidebar.checkbox("Show Data Summary"):
     st.write("### Summary Statistics")
     st.write(df.describe())
 
+st.sidebar.header("Data Information")
+if st.sidebar.checkbox("Show data information"):
+    st.write("Dataset information")
+    df_info_string = df.info(memory_usage='deep')
+    st.write(df_info_string)
+
 if st.sidebar.checkbox("Show Missing Values"):
     st.write("### Missing Values in Each Column")
     st.write(df.isnull().sum())
@@ -64,7 +70,6 @@ if st.sidebar.checkbox("Show Scatter Plot"):
     st.write(f"### Scatter Plot: {x_axis} vs {y_axis}")
     st.pyplot(fig)
 
-# Pairplot for multiple numeric columns
 st.sidebar.header("Pairplot")
 if st.sidebar.checkbox("Show Pairplot"):
     selected_pairplot_columns = st.sidebar.multiselect("Select columns for pairplot", numeric_columns, default=numeric_columns[:4])
