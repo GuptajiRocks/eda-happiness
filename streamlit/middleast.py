@@ -62,3 +62,52 @@ def eco_vs_heal_me(df):
     plt.xticks(rotation=45)
     plt.legend()
     plt.show()
+
+def eco_vs_geno_me(df):
+    tempdf = df[["Country","Region", "Economy", "Generosity"]]
+    cols_to_normalize = ['Economy', 'Generosity']
+    scaler = MinMaxScaler()
+    tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
+    fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
+    jdf = fdf[["Country", "Economy", "Generosity"]]
+    jdf.plot(x="Country", kind="bar", figsize=(10,6))
+    plt.title('GDP vs Generosity Index - Middle East')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.show()
+
+def fam_vs_rank_me(df):
+    # need to sort the array so as to find a median.
+    tempdf = df[["Country","Region", "Family", "Happiness Score"]]
+    tempdf = tempdf.sort_values(by="Family")
+    cols_to_normalize = ["Family", "Happiness Score"]
+    scaler = MinMaxScaler()
+    tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
+    fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
+    jdf = fdf[["Country", "Family", "Happiness Score"]]
+    jdf.plot(x="Country", kind="bar", figsize=(10,6))
+    plt.title('Family Index vs Happiness Score - Middle East')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.show()
+
+def corr_bw_fam_and_rank_me(df):
+    tempdf = df[["Country","Region", "Family", "Happiness Score"]]
+    tempdf = tempdf.sort_values(by="Family")
+    fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
+    jdf = fdf[["Country", "Family", "Happiness Score"]]
+    corr_val = jdf["Family"].corr(df["Happiness Score"])
+
+    if corr_val > 0.7:
+        print(f"The corrleation value of: {corr_val} indicates a strong positive correlation")
+    elif corr_val < 0.7 and corr_val > 0.5:
+        print(f"The corrleation value of: {corr_val} indicates a weak positive correlation")
+    elif corr_val > 0.3 and corr_val < 0.5:
+        print(f"The corrleation value of: {corr_val} indicates a weak negative correlation")
+    else:
+        print(f"The corrleation value of: {corr_val} indicates a strong negative correlation")
+

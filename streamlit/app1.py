@@ -42,8 +42,8 @@ def country_error():
 
 def compare_economy_trust():
     tempdf = df[["Region", "Economy", "Trust"]]
-    cols_to_normalize = ['Economy', 'Trust']
     scaler = MinMaxScaler()
+    cols_to_normalize = ['Economy']
     tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
     tempdf = tempdf.groupby("Region").mean().reset_index()
     tempdf.plot(x="Region", kind="bar", figsize=(10,6))
@@ -54,4 +54,4 @@ def compare_economy_trust():
     plt.legend()
     plt.show()
 
-eco_vs_heal_me(df)
+corr_bw_fam_and_rank_me(df)
