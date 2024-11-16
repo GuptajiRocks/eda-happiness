@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 import seaborn as sns
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 
 # Importing differnt files from directories and their functions
 from middleast import *
@@ -14,8 +14,6 @@ from missfunc import *
     
 #     def df_return():
 #         return df
-
-
 
 df = pd.read_csv("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\dataset\\edac.csv")
 
@@ -88,4 +86,4 @@ def compare_economy_trust():
     plt.legend()
     plt.show()
 
-compare_economy_trust()
+freedom_vs_trust_me(df)
