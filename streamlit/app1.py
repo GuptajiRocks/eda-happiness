@@ -55,4 +55,5 @@ def compare_economy_trust():
     plt.show()
 
 
-latin_america_compare(df)
+
+fam_vs_rank_la(df)
