@@ -111,3 +111,11 @@ def corr_bw_fam_and_rank_me(df):
     else:
         print(f"The corrleation value of: {corr_val} indicates a strong negative correlation")
 
+
+def boxp_me(df):
+    tempdf = df.loc[df["Region"] == "Latin America and Caribbean"]
+    tempdf.boxplot(column="Economy", by="Happiness Score", figsize=(15,15))
+    plt.title("Boxplot between Economy and Happiness Score")
+    plt.show()
+
+
