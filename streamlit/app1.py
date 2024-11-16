@@ -54,6 +54,10 @@ def compare_economy_trust():
     plt.legend()
     plt.show()
 
+def boxp():
+    tempdf = df.loc[df["Region"] == "Latin America and Caribbean"]
+    tempdf.boxplot(column="Economy", by="Happiness Score", figsize=(15,15))
+    plt.title("Boxplot between Economy and Happiness Score")
+    plt.show()
 
-
-fam_vs_rank_la(df)
+boxp()
