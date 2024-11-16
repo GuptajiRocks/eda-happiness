@@ -113,9 +113,9 @@ def corr_bw_fam_and_rank_me(df):
 
 
 def boxp_me(df):
-    tempdf = df.loc[df["Region"] == "Latin America and Caribbean"]
+    tempdf = df.loc[df["Region"] == "Middle East and Northern Africa"]
     tempdf.boxplot(column="Economy", by="Happiness Score", figsize=(15,15))
-    plt.title("Boxplot between Economy and Happiness Score")
+    plt.title("Boxplot between Economy and Happiness Score - Middle East")
     plt.show()
 
 

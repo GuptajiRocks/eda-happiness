@@ -5,10 +5,9 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Importing differnt files from directories and their functions
 from middleast import *
-from missfunc import *
+from latinamerica import *
 from westeur import *
 from northamerica import *
-from latinamerica import *
 
 
 # This file shall only contain the overall region based EDA
@@ -53,4 +52,26 @@ def compare_economy_trust():
     plt.legend()
     plt.show()
 
-fam_vs_rank_me(df)
+def freedom_trust():
+    tempdf = df[["Region", "Freedom", "Trust"]]
+    scaler = MinMaxScaler()
+    cols_to_normalize = ['Freedom', 'Trust']
+    tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
+    tempdf = tempdf.groupby("Region").mean().reset_index()
+    tempdf.plot(x="Region", kind="barh", figsize=(10,6))
+    plt.title('GDP and Trust Score by Country')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.show()
+
+def plot_correlation_matrix(tdata):
+    data = tdata[["Economy","Family","Health","Freedom"]]
+    plt.figure(figsize=(10, 8))
+    correlation_matrix = data.corr()
+    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5)
+    plt.title("Correlation Matrix")
+    plt.show()
+
+plot_correlation_matrix(df)
