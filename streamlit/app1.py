@@ -77,6 +77,8 @@ def country_error():
 def compare_economy_trust():
     tempdf = df[["Region", "Economy (GDP per Capita)", "Trust"]]
     cols_to_normalize = ['Economy (GDP per Capita)', 'Trust']
+    scaler = MinMaxScaler()
+    tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
     tempdf = tempdf.groupby("Region").mean().reset_index()
     tempdf.plot(x="Region", kind="bar", figsize=(10,6))
     plt.title('GDP and Trust Score by Country')
