@@ -19,12 +19,12 @@ def middleast_compare(df):
     plt.show()
 
 def gdp_vs_trust_me(df):
-    tempdf = df[["Country","Region", "Economy (GDP per Capita)", "Trust"]]
-    cols_to_normalize = ['Economy (GDP per Capita)', 'Trust']
+    tempdf = df[["Country","Region", "Economy", "Trust"]]
+    cols_to_normalize = ['Economy', 'Trust']
     scaler = MinMaxScaler()
     tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
     fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
-    jdf = fdf[["Country", "Economy (GDP per Capita)", "Trust"]]
+    jdf = fdf[["Country", "Economy", "Trust"]]
     jdf.plot(x="Country", kind="bar", figsize=(10,6))
     plt.title('GDP and Trust Score - Middle East')
     plt.xlabel('Country')

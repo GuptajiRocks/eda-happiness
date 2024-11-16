@@ -7,6 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 # Importing differnt files from directories and their functions
 from middleast import *
 from missfunc import *
+from westeur import *
+from northamerica import *
 
 # class filer_df:
 #     def __init__(self):
@@ -26,38 +28,6 @@ def trial():
     unique_regions = distinct_region()
     print(unique_regions)
 
-def western_europe_comparison():
-    tempdf = df.loc[df["Region"] == "Western Europe"]
-    plt.figure(figsize=(10, 6))
-    plt.bar(tempdf["Country"], height=tempdf["Freedom"])
-    plt.show()
-    # print(tempdf)
-
-def north_america_compare():
-    tempdf = df.loc[df["Region"] == "North America"]
-    plt.figure(figsize=(10, 6))
-    plt.subplot(1,2,1)
-    plt.bar(tempdf["Country"], height=tempdf["Freedom"])
-    plt.xlabel("Countries")
-    plt.ylabel("Freedom Rating")
-    plt.subplot(1,2,2)
-    plt.bar(tempdf["Country"], height=tempdf["Economy (GDP per Capita)"])
-    plt.xlabel("Countries")
-    plt.ylabel("Economy (GDP Per Capita)")
-    plt.show()
-
-def latin_america_compare():
-    tempdf = df.loc[df["Region"] == "Latin America and Caribbean"]
-    plt.figure(figsize=(10, 6))
-    plt.subplot(1,2,1)
-    plt.bar(tempdf["Country"], height=tempdf["Freedom"])
-    plt.xlabel("Countries")
-    plt.ylabel("Freedom Rating")
-    plt.subplot(1,2,2)
-    plt.bar(tempdf["Country"], height=tempdf["Economy (GDP per Capita)"])
-    plt.xlabel("Countries")
-    plt.ylabel("Economy (GDP Per Capita)")
-    plt.show()
 
 def happiness_score_plot():
     tempdf = df.groupby('Region')["Happiness Score"].mean().reset_index()
@@ -73,8 +43,8 @@ def country_error():
     plt.show()
 
 def compare_economy_trust():
-    tempdf = df[["Region", "Economy (GDP per Capita)", "Trust"]]
-    cols_to_normalize = ['Economy (GDP per Capita)', 'Trust']
+    tempdf = df[["Region", "Economy", "Trust"]]
+    cols_to_normalize = ['Economy', 'Trust']
     scaler = MinMaxScaler()
     tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
     tempdf = tempdf.groupby("Region").mean().reset_index()
