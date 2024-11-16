@@ -74,4 +74,12 @@ def plot_correlation_matrix(tdata):
     plt.title("Correlation Matrix")
     plt.show()
 
-plot_correlation_matrix(df)
+def scatterplot_with_regression(data, x, y):
+    plt.figure(figsize=(8, 6))
+    sns.regplot(data=data, x=x, y=y, scatter_kws={"alpha": 0.6}, line_kws={"color": "red"})
+    plt.title(f"Scatterplot with Regression: {x} vs {y}")
+    plt.xlabel(x)
+    plt.ylabel(y)
+    plt.show()
+
+scatterplot_with_regression(df, x="Economy", y="Freedom")
