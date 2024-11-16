@@ -47,3 +47,18 @@ def freedom_vs_trust_me(df):
     plt.xticks(rotation=45)
     plt.legend()
     plt.show()
+
+def eco_vs_heal_me(df):
+    tempdf = df[["Country","Region", "Economy", "Health"]]
+    cols_to_normalize = ['Economy', 'Health']
+    scaler = MinMaxScaler()
+    tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
+    fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
+    jdf = fdf[["Country", "Economy", "Health"]]
+    jdf.plot(x="Country", kind="bar", figsize=(10,6))
+    plt.title('GDP vs Health Index - Middle East')
+    plt.xlabel('Country')
+    plt.ylabel('Value')
+    plt.xticks(rotation=45)
+    plt.legend()
+    plt.show()

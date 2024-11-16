@@ -9,13 +9,11 @@ from middleast import *
 from missfunc import *
 from westeur import *
 from northamerica import *
+from latinamerica import *
 
-# class filer_df:
-#     def __init__(self):
-#         df = pd.read_csv("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\dataset\\edac.csv")
-    
-#     def df_return():
-#         return df
+
+# This file shall only contain the overall region based EDA
+# rest all country based analysis is done in separate files and shall be called here in the form of a WAP
 
 df = pd.read_csv("D:\\Bennett University\\Sem 3\\Projects\\DataScience\\trialone\\dataset\\edac.csv")
 
@@ -56,4 +54,4 @@ def compare_economy_trust():
     plt.legend()
     plt.show()
 
-freedom_vs_trust_me(df)
+eco_vs_heal_me(df)
