@@ -38,10 +38,10 @@ def freedom_vs_trust_me(df):
     cols_to_normalize = ['Freedom', 'Trust']
     scaler = MinMaxScaler()
     tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
-    fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
+    fdf = tempdf[tempdf['Region'] == "Central and Eastern Europe"]
     jdf = fdf[["Country", "Freedom", "Trust"]]
     jdf.plot(x="Country", kind="bar", figsize=(10,6))
-    plt.title('Freedom vs Trust Score - Middle East')
+    plt.title('Freedom vs Trust Score - Central and Eastern Europe')
     plt.xlabel('Country')
     plt.ylabel('Value')
     plt.xticks(rotation=45)
@@ -68,10 +68,10 @@ def eco_vs_geno_me(df):
     cols_to_normalize = ['Economy', 'Generosity']
     scaler = MinMaxScaler()
     tempdf[cols_to_normalize] = scaler.fit_transform(tempdf[cols_to_normalize])
-    fdf = tempdf[tempdf['Region'] == "Middle East and Northern Africa"]
+    fdf = tempdf[tempdf['Region'] == "Central and Eastern Europe"]
     jdf = fdf[["Country", "Economy", "Generosity"]]
     jdf.plot(x="Country", kind="bar", figsize=(10,6))
-    plt.title('GDP vs Generosity Index - Middle East')
+    plt.title('GDP vs Generosity Index - Central and Eastern Europe')
     plt.xlabel('Country')
     plt.ylabel('Value')
     plt.xticks(rotation=45)
