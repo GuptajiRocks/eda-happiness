@@ -17,6 +17,9 @@ def start_streamlit():
     time.sleep(5)
     return redirect("http://localhost:8501")
 
+@app.route("/error")
+def err_page():
+    return render_template("why.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
