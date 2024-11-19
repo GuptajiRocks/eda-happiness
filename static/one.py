@@ -114,3 +114,4 @@ if options == "Custom Visualizations":
         sns.scatterplot(data=data, x=x_col, y=y_col)
         plt.title(f"{x_col} vs {y_col}")
         st.pyplot(plt)
+f
